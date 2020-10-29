@@ -1,0 +1,35 @@
+<!--Navbar -->
+<nav class="ml-4 navbar navbar-expand-lg navbar-transparent justify-content-between">
+  <p>Project : <a class="navbar-brand" routerLink="/scrum/home" routerLinkActive="router-link-active">{{project.name}}</a></p>
+
+  <ul class="navbar-nav ml-auto nav-flex-icons">
+    <li class="nav-item avatar" *ngFor="let photo of listUsers">
+      <a class="nav-link p-0">
+        <img [src]="photo.src" class="rounded-circle z-depth-0" alt="" width="35" height="35">
+      </a>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav ml-auto">
+    <li ngbDropdown class="nav-item dropdown">
+        <button class="btn btn-info" id="navbarDropdown" ngbDropdownToggle>
+            <i class="fa fa-plus"></i>Add member</button>
+
+      <div ngbDropdownMenu class="large-size" aria-labelledby="navbarDropdown">
+        <p>Add member to this project</p>
+        <div class="dropdown-divider"></div>
+        <mat-form-field class="input-group">
+          <input type="text" matInput placeholder="Address email" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">This Email is invalid</mat-error>
+        </mat-form-field>
+        <br>
+        <input mat-raised-button type="submit" (click)="sendInvitation()" class="btn btn-lg btn-bleu btn-block" value="Send invitation">
+      </div>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    .
+  </ul>
+ 
+</nav>
+<!--/.Navbar -->

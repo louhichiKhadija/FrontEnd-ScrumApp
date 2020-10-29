@@ -1,0 +1,17 @@
+
+<!--<app-nav-bar></app-nav-bar>-->
+<div class="wrapper d-flex">
+  <div class="col-lg-2">
+<mat-drawer-container >
+
+    <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+      <div class="sidebar" data-color="danger" data-background-color="white" data-image="./assets/img/sidebar-1.jpg">
+        <app-sidebar></app-sidebar>
+      </div>
+    </mat-drawer>
+  </mat-drawer-container>
+</div>
+<div class="col-lg-10">
+<router-outlet></router-outlet>
+</div>
+</div>

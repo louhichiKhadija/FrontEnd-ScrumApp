@@ -1,0 +1,109 @@
+
+    <div class="container"   >
+  
+        <div class="list-container">
+      
+          <div class="todo-container column-container">
+            <div class="list"   
+            cdkDropList
+               #todoList="cdkDropList"
+               [cdkDropListData]="todos"
+               [cdkDropListConnectedTo]="[completeList,newList,terminereList]"
+               (cdkDropListDropped)="onDrop($event)" >
+              <h2>{{afaire.name }}</h2>
+              <mat-card *ngFor="let todo of todos " cdkDrag>
+                <mat-card-header class="bost">
+                  <mat-card-title>{{todo.name}}</mat-card-title>
+                  <mat-card-subtitle>{{todo.category}}</mat-card-subtitle>
+                </mat-card-header>
+              </mat-card>
+            </div>
+          </div>
+              
+<!-- //////////////////////////////////////////////////////////// -->
+          <div class="done-container column-container">
+            <div class="list"         
+            cdkDropList
+            #completeList="cdkDropList"
+            [cdkDropListData]="completed"
+            [cdkDropListConnectedTo]="[todoList,terminereList,newList]"
+            (cdkDropListDropped)="onDrop($event)"
+            
+            
+            >   
+  
+            
+            
+            >  
+              <h2>{{encours.name }}</h2>
+              <mat-card *ngFor="let complete of completed" cdkDrag>
+                <mat-card-header class="host">
+                  <mat-card-title>{{complete.name}}</mat-card-title>
+                  <mat-card-subtitle>{{complete.category}}</mat-card-subtitle>
+                </mat-card-header>
+              </mat-card>
+            </div>  
+          </div>
+        
+<!-- //////////////////////////////////////////////////////////// -->
+          <div class="done-container column-container">
+            <div class="list"         
+            cdkDropList
+            #terminereList="cdkDropList"
+            [cdkDropListData]="termin"
+            [cdkDropListConnectedTo]="[todoList,completeList,newList]"
+            (cdkDropListDropped)="onDrop($event)"
+            
+            
+            >   
+              <h2>{{terminer.name }}</h2>
+              <mat-card *ngFor="let term of termin" cdkDrag>
+                <mat-card-header class="host">
+                  <mat-card-title>{{term.name}}</mat-card-title>
+                  <mat-card-subtitle>{{term.category}}</mat-card-subtitle>
+                </mat-card-header>
+              </mat-card>
+            </div>  
+          </div>
+
+
+                
+<!-- //////////////////////////////////////////////////////////// -->
+
+<div class="done-container column-container" *ngIf="addstate">
+  <div class="list"         
+  cdkDropList
+  #newList="cdkDropList"
+  [cdkDropListData]="listt"
+  [cdkDropListConnectedTo]="[todoList,terminereList,completeList]"
+  (cdkDropListDropped)="onDrop($event)"
+  
+  
+  >   
+    <h2>{{neww.name}}</h2>
+    <mat-card *ngFor="let comp of listt" cdkDrag>
+      <mat-card-header class="host">
+        <mat-card-title>{{comp.name}}</mat-card-title>
+        <mat-card-subtitle>{{comp.category}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+  </div>  
+</div>
+<!-- //////////////////////////////////////////////////////////// -->
+
+
+          <div  [formGroup]="addStateForm"  *ngIf="add"  class="done-container column-container">
+         <input formControlName="name"  type="text">
+         <button mdbBtn type="submit" color="primary"  (click)="changeState()" mdbWavesEffect>OK</button>
+        
+        </div> 
+          <button *ngIf="!add" mdbBtn type="submit" color="primary" (click)="change()" mdbWavesEffect>ADD</button>
+
+
+        </div>
+        
+      </div>
+      
+    
+
+    

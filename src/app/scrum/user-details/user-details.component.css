@@ -1,0 +1,164 @@
+.centrage {
+    text-align: center;
+    height: 60%;
+    margin: auto;
+    width: 1000px;
+    
+}
+
+
+.toul{
+    height: 50%;
+    margin: auto;
+    width: 1000px;
+}
+
+/* MAIN CONTENT CONFIGURATION */
+#main-content {
+    margin-left: 2%;
+}
+
+.site-min-height {
+    min-height: 900px;
+}
+
+.mt {
+	margin-top: 25px;
+}
+/*Content Panel*/
+.content-panel {
+	background: #ffffff;
+	box-shadow: 0px 3px 2px #aab2bd;
+	padding-top: 15px;
+	padding-bottom: 5px;
+}
+.content-panel h4 {
+	margin-left: 10px;
+}
+
+/* PROFILE PAGE CONF */
+.profile-pic img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border: 2px solid #f1f2f7;
+	margin-top: 20px;
+}
+
+.profile-text h6 {
+	margin-top: -10px;
+	margin-bottom: 20px;
+	color: #d3d3d3;
+}
+
+.profile-text h3 {
+	font-weight: 300;
+	color: #000000;
+}
+
+.profile-text h4 {
+	color: #8490ff;
+}
+
+.profile-text p {
+	margin-left: 10px;
+}
+
+.right-divider {
+	border-right: 1px solid #d3d3d3;
+	height: 100%;
+}
+
+.centered {
+	text-align: center;
+}
+
+/*Theme Buttons*/
+
+.btn-theme {
+    color: #fff;
+    background-color:   #8490ff;
+    border-color:  #8490ff;
+  }
+  .btn-theme:hover,
+  .btn-theme:focus,
+  .btn-theme:active,
+  .btn-theme.active,
+  .open .dropdown-toggle.btn-theme {
+    color: #fff;
+    background-color:  #8490ff;
+    border-color:  #8490ff;
+  }
+
+.icon{
+    color: #8490ff;
+    background-color: transparent;
+    border-color:  #fff;
+    width: 10px;
+	height: 10px;
+}
+
+.icon:hover,
+.icon:focus{
+    color:rgb(34, 97, 214);
+
+}
+
+
+.activity-panel {
+	padding: 15px 30px;
+	background: #f2f2f2;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	position: relative;
+	text-align: center;
+}
+
+.activity-panel h5 a{
+    color: #000000;
+	font-weight: 700;
+}
+
+
+.detailed h4 {
+	text-align: center;
+	text-transform: uppercase;
+	border-bottom: 1px solid #e2e2e2;
+	font-weight: 700;
+	color: #8490ff;
+}
+
+
+.recent-activity {
+	border-collapse: collapse;
+	border-spacing: 0;
+	display: table;
+	position: relative;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.recent-activity:before {
+	background-color: #eeeeee;
+	bottom: 0;
+	content: "";
+	left: 50%;
+	position: absolute;
+	top: 50px;
+	width: 2px;
+	z-index: 0;
+}
+
+
+.activity-icon {
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	color: #FFFFFF;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	width: 30px;
+	margin: 20px auto 20px;
+	position: relative;
+}

@@ -1,0 +1,38 @@
+.vertical-line{
+    border-left: 2px solid #fff;
+    display: inline-block;
+    height: 20px;
+    margin: 0 20px;
+  }
+
+  .btn-bleu{ 
+
+    color: #fff;
+    background-color:#8490ff;
+    border-color: #8490ff; }
+    .btn-bleu:hover {
+      color: grey;
+      background-color:#8490ff}
+   
+.large-size{
+  padding: 10%;
+  width: 300px;
+  height: 200px;
+}
+
+/*Theme Buttons*/
+
+.btn-theme {
+  color: #fff;
+  background-color:   #8490ff;
+  border-color:  #8490ff;
+}
+.btn-theme:hover,
+.btn-theme:focus,
+.btn-theme:active,
+.btn-theme.active,
+.open .dropdown-toggle.btn-theme {
+  color: #fff;
+  background-color:  #8490ff;
+  border-color:  #8490ff;
+}

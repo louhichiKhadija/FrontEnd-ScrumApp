@@ -1,0 +1,63 @@
+<section id="main-content">
+  <section class="wrapper site-min-height">
+    <div class="row mt">
+      <div class="col-lg-12">
+        <div class="row content-panel">
+          <div class="col-md-4 profile-text mt mb centered">
+            <div class="right-divider hidden-sm hidden-xs">
+              <br>
+              <h4>{{length}}</h4>
+              <h6>PRIJECTS</h6>
+              <h4>290</h4>
+              <h6>TASKS</h6>
+            </div>
+          </div>
+          <!-- /col-md-4 -->
+          <div class="col-md-4 mt mb  profile-text">
+            <br>
+            <p>First name: {{users.firstName}}</p>
+            <p>Last name: {{users.lastName}}</p>
+            <p>Email: {{users.email}}</p>
+          </div>
+          <!-- /col-md-4 -->
+
+          <div class="col-md-4 centered">
+            <label class="icon">
+              <i class="fa fa-camera"></i><input type="file" style="display: none;" (change)="handleImage($event)">
+            </label>
+            <div class="profile-pic">
+              <p><img s [src]="img.src" alt="profile photo" class="img-circle"></p>
+              <p>
+                <button (click)="editProfile()" class="btn btn-theme"><i class="fa fa-edit"></i>Edit
+                  profile</button>
+                  
+                <button (click)="editPassword()" class="btn btn-theme"><i class="fa fa-unlock"></i>Edit password</button>
+                  
+              </p>
+            </div>
+
+
+          </div>
+          <!-- /col-md-4 -->
+        </div>
+        <!-- /row -->
+      </div>
+  
+      <div class="col-lg-12 mt" >
+        <div class="row content-panel">
+          <div class="detailed mt">
+            <h4>Recent projects</h4>
+            <div class="recent-activity">
+              <div *ngFor="let project of recentProjects" class="activity-panel">
+                <h5><a routerLink="/scrum/project/{{project.id}}/list-sprints" routerLinkActive="router-link-active" >{{project.name}}</a></h5>
+                <!--<p>{{project.description}}</p>-->
+              </div>
+              <div class="activity-icon"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</section>

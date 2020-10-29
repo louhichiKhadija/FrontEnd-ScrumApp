@@ -1,0 +1,36 @@
+.centrage {text-align: center;
+   
+    margin: auto;
+    width: 1000px;
+}
+.img{
+    margin: auto;
+    width: 150px;
+}
+
+.bl{
+    margin-left: 7%;
+}
+
+
+.btn-theme {
+    color: #fff;
+    background-color:   #8490ff;
+    border-color:  #8490ff;
+  }
+  .btn-theme:hover,
+  .btn-theme:focus,
+  .btn-theme:active,
+  .btn-theme.active,
+  .open .dropdown-toggle.btn-theme {
+    color: #fff;
+    background-color:  #8490ff;
+    border-color:  #8490ff;
+  }
+  
+.btn-close{
+    color: #8490ff;
+    background-color:   #fff;
+    border-color:  #8490ff;
+}
+  

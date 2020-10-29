@@ -1,0 +1,88 @@
+.todo{
+    min-height :100%;
+    width:100%;
+    background-color :white;
+
+}
+.done{
+    min-height :100%;
+    width:100%;
+    background-color :white;
+
+}
+.doing{
+    
+    background-color :white;
+
+}
+.material-icons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+}
+.add{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+
+}
+.addadd{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    padding: 20px 10px;
+}
+.addadd2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.doingCard{
+    height: 60px;
+    align-items: center;
+    background-color: rgb(0, 170, 255);
+    color: white;
+    padding-left: 22px; padding-right: 22px;
+    margin-bottom: 2%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.todoCard{
+    height: 60px;
+    align-items: center;
+    background-color: rgb(48, 191, 191);
+    color: white;
+    padding-left: 22px; padding-right: 22px;
+    margin-bottom: 2%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.doneCard{
+    height: 60px;
+    align-items: center;
+    background-color: rgb(143, 126, 230);
+    color: white;
+    padding-left: 22px; padding-right: 22px;
+    margin-bottom: 2%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.button-menu{
+    background: transparent;
+    color: black;
+}
+
+.btn-theme{
+    color: #fff;
+    background-color:   #8490ff;
+    border-color:  #8490ff;
+}

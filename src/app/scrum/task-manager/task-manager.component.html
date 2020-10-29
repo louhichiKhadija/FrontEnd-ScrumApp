@@ -1,0 +1,461 @@
+<!-- -------------------------------------------------
+   ----------------------add task --------------------------
+----------------------------------------------------------------- -->
+<!-- Modal -->
+<div class="modal fade" [ngClass]="{'show':show}" [ngStyle]="{'display' : displayValue}" id="exampleModalCenter"
+  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Add Todo</h1>
+        <button type="button" class="close" (click)="hide()" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!-- modif -->
+      <div class="modal-body">
+        <form #formulaire="ngForm">
+           
+          <label for="title">title </label>
+          <input id="title" required name="title" [(ngModel)]="title" type="text" class="form-control">
+
+          <label for="content">content</label>
+          <input id="content" required name="content" [(ngModel)]="content" type="text" class="form-control">
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-alert" data-dismiss="modal" (click)="hide()">Close</button>
+        <button type="button" (click)="addTodo()" class="btn btn-theme">Add todo</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<app-nav-bar-project></app-nav-bar-project>
+<div class="row p-4 p-md-5 pt-5">
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ******************************TODO********************** -->
+  <div class="col-md-4 col-sm-4">
+
+
+
+    <!-- ////*******************************/// -->
+    <div class="kr-view" style="flex-direction: column; flex-grow: 0; flex-shrink: 0;">
+      <div class="kr-view"
+        style="height: 60px; align-items: center; background-color: rgb(48, 191, 191); padding-left: 22px; padding-right: 22px; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;margin-bottom: 8%;">
+        <!-- react-empty: 408 -->
+        <div class="kr-view"
+          style="display: inline-flex; max-width: 100%; top: 50%; position: absolute; left: 0px; transform: translateY(-50%) translateX(-50%);">
+          <div class="kr-view">
+            <div class="kr-view"
+              style="width: 28px; height: 28px; cursor: pointer; justify-content: center; align-items: center;">
+              <div class="kr-view"
+                style="background-color: white; border-radius: 100%; box-shadow: rgba(0, 0, 0, 0.02) 0px 0px 0px 1px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px, rgba(0, 0, 0, 0.05) 0px 2px 8px 0px; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%; transform: scaleX(0) scaleY(0);">
+              </div>
+              <div class="kr-view"
+                style="width: 16px; height: 16px; color: rgb(138, 148, 153); backface-visibility: hidden; transform: scaleX(0) scaleY(0);">
+                <svg width="100%" height="100%" viewBox="0 0 16 16">
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M8 2c.552 0 1 .456 1 1.002V7h3.998c.514 0 .937.383.995.883L14 8c0 .552-.456 1-1.002 1H9v3.998a.999.999 0 0 1-.883.995L8 14c-.552 0-1-.456-1-1.002V9H3.002a.999.999 0 1 1 0-2H7V3.002c0-.514.383-.937.883-.995L8 2z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="kr-view"
+          style="flex-direction: row; flex-grow: 1; flex-shrink: 1; align-items: center; height: 100%; cursor: -webkit-grab;">
+          <div class="kr-view"
+            style="flex-direction: row; flex-grow: 1; flex-shrink: 1; align-items: center; height: 100%; cursor: -webkit-grab;">
+            <div class="kr-view"
+              style="width: 24px; height: 24px; color: white; margin-right: 15px; cursor: -webkit-grab;">
+              <svg width="100%" height="100%" viewBox="0 0 25 25">
+                <g fill="none" fill-rule="evenodd">
+                  <path fill="currentColor"
+                    d="M18 10.417C18 7.425 15.538 5 12.5 5S7 7.425 7 10.417c0 2.8 3 4.433 3 5.583v1h5v-1c0-1.153 3-2.783 3-5.583z">
+
+                  </path>
+                  <path stroke="currentColor" stroke-linecap="round"
+                    d="M14.5 18v1.75c0 .966-.79 1.75-1.743 1.75h-.514a1.742 1.742 0 0 1-1.743-1.75V18">
+
+                  </path>
+                  <path fill="currentColor" d="M11 21h3v1c0 .552-.443 1-.999 1h-1.002A.997.997 0 0 1 11 22v-1z">
+
+                  </path>
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    d="M12.5 1.5v2M3.5 10.5h2M19.5 10.5h2M18 6l1.5-1.5M18 15l1.5 1.5M7 6L5.5 4.5M7 15l-1.5 1.5"></path>
+                </g>
+              </svg></div>
+            <div class="kr-text"
+              style="flex: 1 0 0%; font-size: 21px; font-weight: 500; line-height: 31px; letter-spacing: normal; cursor: text; color: white; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+              <div *ngIf="todos">
+                Todo {{todos.length}}
+              </div>
+            </div>
+
+            <div class="kr-view react-popover-trigger react-popover-trigger-popover-section-actions-17314847"
+              style="width: 30px; height: 100%; cursor: pointer; align-items: center; flex-direction: column; justify-content: center; opacity: 0;">
+              <div class="kr-view" style="color: rgb(255, 255, 255); width: 16px; height: 16px;"><svg width="100%"
+                  height="100%" viewBox="0 0 16 16">
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M10.36 6.232a1 1 0 0 1 1.28 1.536l-3 2.5a1 1 0 0 1-1.28 0l-3-2.5a1 1 0 1 1 1.28-1.536L8 8.198l2.36-1.966z">
+                  </path>
+                </svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="kr-view"
+          style="display: inline-flex; max-width: 100%; top: 50%; position: absolute; right: 0px; transform: translateY(-50%) translateX(100%);">
+          <div class="kr-view">
+            <div class="kr-view"
+              style="width: 28px; height: 28px; cursor: pointer; justify-content: center; align-items: center;">
+              <div class="kr-view"
+                style="background-color: white; border-radius: 100%; box-shadow: rgba(0, 0, 0, 0.02) 0px 0px 0px 1px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px, rgba(0, 0, 0, 0.05) 0px 2px 8px 0px; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%; transform: scaleX(0) scaleY(0);">
+              </div>
+              <div class="kr-view"
+                style="width: 16px; height: 16px; color: rgb(0, 170, 255); backface-visibility: hidden; transform: scaleX(0) scaleY(0);">
+                <svg width="100%" height="100%" viewBox="0 0 16 16">
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M8 2c.552 0 1 .456 1 1.002V7h3.998c.514 0 .937.383.995.883L14 8c0 .552-.456 1-1.002 1H9v3.998a.999.999 0 0 1-.883.995L8 14c-.552 0-1-.456-1-1.002V9H3.002a.999.999 0 1 1 0-2H7V3.002c0-.514.383-.937.883-.995L8 2z">
+                  </path>
+                </svg></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="kr-view"
+          style="position: absolute; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%);">
+          <!-- react-empty: 450 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- /**********************************///// -->
+
+    <div class="todo dragList" cdkDropList #todoList="cdkDropList" [cdkDropListData]="todos"
+      [cdkDropListConnectedTo]="[doingList,doneList]" (cdkDropListDropped)="drop($event)">
+      <div class="todoCard" placement="right" [ngbPopover]="popContent" [popoverTitle]="popTitle"
+        *ngFor="let todo of todos" cdkDrag [cdkDragData]="todo">
+
+        
+
+      
+       
+      <ng-template #popTitle> 
+        <b>Associate this task to:</b>
+      </ng-template>
+     
+        <ng-template #popContent>
+
+          <div *ngFor="let user of listUsers">
+                <button mat-menu-item (click)="addOwner(user.email, todo.id)" class="btn btn-link">
+                  <span> <img [src]="user.src"  class="rounded-circle z-depth-0" alt="todo.owner.firstName" width="30" height="30">
+                  {{user.name}}</span>
+                </button> 
+              </div>
+        </ng-template>
+        
+    
+            {{todo.title}}
+    
+          <i class="material-icons float-right mt-3">more_vert</i>
+        
+        <div *ngFor="let item of listUsers">
+          <div *ngIf="todo.owner !=null">
+        <a *ngIf="item.id==todo.owner['id']" class="float-right">
+          <img [src]="item.src" class="rounded-circle z-depth-0" alt="todo.owner.firstName" width="30" height="30">
+        </a>
+        </div>
+      </div>
+
+      
+
+
+    
+
+      </div>
+
+      <div (click)="display()" class="alert alert-light">
+
+
+        <i class="material-icons">
+          add_circle
+        </i>
+        <div class="add">
+          add task..
+        </div>
+      </div>
+
+
+      <div *ngIf="!todos.length">
+        <div class="addadd">
+          <i class="material-icons">
+            input
+          </i>
+
+          <h3>Aucune tache </h3>
+          <h4>Faites glisser les taches ici <br> ou cliquez sur +
+            pour ajouter <br>de nouvelles taches
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- *****************************End TODO************************* -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- **********************DOING******************************* -->
+  <div class="col-md-4 col-sm-4">
+    <!-- ///////////////*************************** -->
+    <div class="kr-view" style="flex-direction: column; flex-grow: 0; flex-shrink: 0;">
+      <div class="kr-view"
+        style="height: 60px; align-items: center; background-color: rgb(0, 170, 255); padding-left: 22px; padding-right: 22px; margin-bottom: 8%;
+         box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;">
+        <!-- react-empty: 463 -->
+        <div class="kr-view"
+          style="display: inline-flex; max-width: 100%; top: 50%; position: absolute; left: 0px; transform: translateY(-50%) translateX(-50%);">
+          <div class="kr-view">
+            <div class="kr-view"
+              style="width: 28px; height: 28px; cursor: pointer; justify-content: center; align-items: center;">
+              <div class="kr-view"
+                style="background-color: white; border-radius: 100%; box-shadow: rgba(0, 0, 0, 0.02) 0px 0px 0px 1px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px, rgba(0, 0, 0, 0.05) 0px 2px 8px 0px; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%; transform: scaleX(0) scaleY(0);">
+              </div>
+              <div class="kr-view"
+                style="width: 16px; height: 16px; color: rgb(138, 148, 153); backface-visibility: hidden; transform: scaleX(0) scaleY(0);">
+                <svg width="100%" height="100%" viewBox="0 0 16 16">
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M8 2c.552 0 1 .456 1 1.002V7h3.998c.514 0 .937.383.995.883L14 8c0 .552-.456 1-1.002 1H9v3.998a.999.999 0 0 1-.883.995L8 14c-.552 0-1-.456-1-1.002V9H3.002a.999.999 0 1 1 0-2H7V3.002c0-.514.383-.937.883-.995L8 2z">
+                  </path>
+                </svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="kr-view"
+          style="flex-direction: row; flex-grow: 1; flex-shrink: 1; align-items: center; height: 100%; cursor: -webkit-grab;">
+          <div class="kr-view"
+            style="flex-direction: row; flex-grow: 1; flex-shrink: 1; align-items: center; height: 100%; cursor: -webkit-grab;">
+            <div class="kr-view"
+              style="width: 24px; height: 24px; color: white; margin-right: 15px; cursor: -webkit-grab;"><svg
+                width="100%" height="100%" viewBox="0 0 25 25">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                  d="M2.5 12.5h4l4-7 4 14 4-7h4"></path>
+              </svg></div>
+            <div class="kr-text"
+              style="flex: 1 0 0%; font-size: 21px; font-weight: 500; line-height: 31px; letter-spacing: normal; cursor: text; color: white; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+              <div *ngIf="doing">
+                Doing
+                {{doing.length}}
+              </div>
+            </div>
+            <div class="kr-view react-popover-trigger react-popover-trigger-popover-section-actions-17314848"
+              style="width: 30px; height: 100%; cursor: pointer; align-items: center; flex-direction: column; justify-content: center; opacity: 0;">
+              <div class="kr-view" style="color: rgb(255, 255, 255); width: 16px; height: 16px;"><svg width="100%"
+                  height="100%" viewBox="0 0 16 16">
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M10.36 6.232a1 1 0 0 1 1.28 1.536l-3 2.5a1 1 0 0 1-1.28 0l-3-2.5a1 1 0 1 1 1.28-1.536L8 8.198l2.36-1.966z">
+                  </path>
+                </svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="kr-view"
+          style="display: inline-flex; max-width: 100%; top: 50%; position: absolute; right: 0px; transform: translateY(-50%) translateX(100%);">
+          <div class="kr-view">
+            <div class="kr-view"
+              style="width: 28px; height: 28px; cursor: pointer; justify-content: center; align-items: center;">
+              <div class="kr-view"
+                style="background-color: white; border-radius: 100%; box-shadow: rgba(0, 0, 0, 0.02) 0px 0px 0px 1px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px, rgba(0, 0, 0, 0.05) 0px 2px 8px 0px; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%; transform: scaleX(0) scaleY(0);">
+              </div>
+              <div class="kr-view"
+                style="width: 16px; height: 16px; color: rgb(0, 170, 255); backface-visibility: hidden; transform: scaleX(0) scaleY(0);">
+                <svg width="100%" height="100%" viewBox="0 0 16 16">
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M8 2c.552 0 1 .456 1 1.002V7h3.998c.514 0 .937.383.995.883L14 8c0 .552-.456 1-1.002 1H9v3.998a.999.999 0 0 1-.883.995L8 14c-.552 0-1-.456-1-1.002V9H3.002a.999.999 0 1 1 0-2H7V3.002c0-.514.383-.937.883-.995L8 2z">
+                  </path>
+                </svg></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ///////////////////******************* -->
+
+
+
+    <div class="doing dragList" cdkDropList #doingList="cdkDropList" [cdkDropListData]="doing"
+      [cdkDropListConnectedTo]="[todoList,doneList]" (cdkDropListDropped)="drop($event)">
+      <div class="doingCard" placement="right" [ngbPopover]="popContent" [popoverTitle]="popTitle"
+        *ngFor="let todo of doing" cdkDrag [cdkDragData]="todo">
+
+       
+        {{todo.title}}
+
+        <div *ngFor="let item of listUsers">
+            <div *ngIf="todo.owner != null">
+            <a *ngIf="item.id==todo.owner['id']" class="float-right">
+              <img [src]="item.src" class="rounded-circle z-depth-0" alt="todo.owner.firstName" width="30" height="30">
+            </a>
+          </div>
+          </div>
+
+      </div>
+      <div *ngIf="!doing.length">
+        <div class="addadd">
+          <i class="material-icons">
+            input
+          </i>
+
+          <h3>Aucune tache </h3>
+          <h4>Faites glisser les taches ici <br>
+          </h4>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- ***********************END DOING******************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--***************************DONE***************************  -->
+  <div class="col-md-4 col-sm-4">
+
+    <!-- ////////////////// -->
+    <div class="kr-view" style="flex-direction: column; flex-grow: 0; flex-shrink: 0;">
+      <div class="kr-view"
+        style="height: 60px; align-items: center; background-color: rgb(143, 126, 230); padding-left: 22px; padding-right: 22px; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; margin-bottom: 8%;">
+        <!-- react-empty: 507 -->
+        <div class="kr-view"
+          style="display: inline-flex; max-width: 100%; top: 50%; position: absolute; left: 0px; transform: translateY(-50%) translateX(-50%);">
+          <div class="kr-view">
+            <div class="kr-view"
+              style="width: 28px; height: 28px; cursor: pointer; justify-content: center; align-items: center;">
+              <div class="kr-view"
+                style="background-color: white; border-radius: 100%; box-shadow: rgba(0, 0, 0, 0.02) 0px 0px 0px 1px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px, rgba(0, 0, 0, 0.05) 0px 2px 8px 0px; height: 100%; left: 0px; position: absolute; top: 0px; width: 100%; transform: scaleX(0) scaleY(0);">
+              </div>
+              <div class="kr-view"
+                style="width: 16px; height: 16px; color: rgb(138, 148, 153); backface-visibility: hidden; transform: scaleX(0) scaleY(0);">
+                <svg width="100%" height="100%" viewBox="0 0 16 16">
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M8 2c.552 0 1 .456 1 1.002V7h3.998c.514 0 .937.383.995.883L14 8c0 .552-.456 1-1.002 1H9v3.998a.999.999 0 0 1-.883.995L8 14c-.552 0-1-.456-1-1.002V9H3.002a.999.999 0 1 1 0-2H7V3.002c0-.514.383-.937.883-.995L8 2z">
+                  </path>
+                </svg></div>
+            </div>
+
+
+          </div>
+        </div>
+        <div class="kr-view"
+          style="flex-direction: row; flex-grow: 1; flex-shrink: 1; align-items: center; height: 100%; cursor: -webkit-grab;">
+          <div class="kr-view"
+            style="flex-direction: row; flex-grow: 1; flex-shrink: 1; align-items: center; height: 100%; cursor: -webkit-grab;">
+            <div class="kr-view"
+              style="width: 24px; height: 24px; color: white; margin-right: 15px; cursor: -webkit-grab;">
+              <svg width="100%" height="100%" viewBox="0 0 25 25">
+                <path fill="currentColor" fill-rule="evenodd"
+                  d="M12.5 2C18.299 2 23 6.701 23 12.5S18.299 23 12.5 23 2 18.299 2 12.5 6.701 2 12.5 2zm4.293 6.293l-6.314 6.272-2.272-2.272a1 1 0 1 0-1.414 1.414l3 3 .707.707 7.707-7.707a1 1 0 1 0-1.414-1.414z">
+                </path>
+              </svg>
+            </div>
+            <div class="kr-text"
+              style="flex: 1 0 0%; font-size: 21px; font-weight: 500; line-height: 31px; letter-spacing: normal; cursor: text; color: white; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+              <div *ngIf="done">
+                Done
+                {{done.length}}
+              </div>
+            </div>
+
+            <div class="kr-view react-popover-trigger react-popover-trigger-popover-section-actions-17314849"
+              style="width: 30px; height: 100%; cursor: pointer; align-items: center; flex-direction: column; justify-content: center; opacity: 0;">
+              <div class="kr-view" style="color: rgb(255, 255, 255); width: 16px; height: 16px;"><svg width="100%"
+                  height="100%" viewBox="0 0 16 16">
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M10.36 6.232a1 1 0 0 1 1.28 1.536l-3 2.5a1 1 0 0 1-1.28 0l-3-2.5a1 1 0 1 1 1.28-1.536L8 8.198l2.36-1.966z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ///////////// -->
+
+    <div class="done dragList" cdkDropList #doneList="cdkDropList" [cdkDropListData]="done"
+      [cdkDropListConnectedTo]="[todoList,doingList]" (cdkDropListDropped)="drop($event)">
+      <div class="doneCard" placement="right" [ngbPopover]="popContent" [popoverTitle]="popTitle"
+        *ngFor="let todo of done" cdkDrag [cdkDragData]="todo">
+        
+        {{todo.title}}
+
+        <div *ngFor="let item of listUsers">
+          <div *ngIf="todo.owner != null">
+            <a *ngIf="item.id==todo.owner['id']" class="float-right">
+              <img [src]="item.src" class="rounded-circle z-depth-0" alt="todo.owner.firstName" width="30" height="30">
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div *ngIf="!done.length">
+        <div class="addadd2">
+          <i class="material-icons">
+            input
+          </i>
+
+          <h3>Aucune tache </h3>
+          <h4>Faites glisser les taches ici <br>
+          </h4>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
